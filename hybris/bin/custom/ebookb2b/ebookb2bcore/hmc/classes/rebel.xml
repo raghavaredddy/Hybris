@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://www.zeroturnaround.com">
+  <classpath>
+    <dir name="D:\b2b\hybris\bin\custom\ebookb2b\ebookb2bcore/hmc/classes" />
+  </classpath>
+</application>

@@ -1,0 +1,77 @@
+# ImpEx for Importing Products Stock Levels and Warehouses
+
+# Macros / Replacement Parameter definitions
+$productCatalog=ebookb2bProductCatalog
+$productCatalogName=ebookb2b Product Catalog
+$vendor=ebookb2b
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+#INSERT_UPDATE Vendor;code[unique=true]
+#;$vendor
+
+INSERT_UPDATE Vendor;code[unique=true]
+;ebookb2b;Ebookb2b;Ebookb2b
+  
+INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;warehouse_c;ebookb2b
+INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;100;warehouse_c;forceInStock;0;-1;0;0;0001;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0002;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0003;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0004;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0005;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0006;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0007;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0008;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0009;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0010;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0011;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0012;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0013;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0014;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0015;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0016;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0017;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0018;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0019;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0020;0
+
+
+;100;warehouse_c;notSpecified;0;-1;0;0;ATG0017;0
+;100;warehouse_c;notSpecified;0;-1;0;0;ATT0017;0
+;100;warehouse_c;notSpecified;0;-1;0;0;ATG0018;0
+;100;warehouse_c;notSpecified;0;-1;0;0;ATT0018;0
+;100;warehouse_c;notSpecified;0;-1;0;0;ATG0019;0
+;100;warehouse_c;notSpecified;0;-1;0;0;ATT0019;0
+
+  
+UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;0001;;0001:warehouse_c;ebookb2b
+;0002;;0002:warehouse_c;ebookb2b
+;0003;;0003:warehouse_c;ebookb2b
+;0004;;0004:warehouse_c;ebookb2b
+;0005;;0005:warehouse_c;ebookb2b
+;0006;;0006:warehouse_c;ebookb2b
+;0007;;0007:warehouse_c;ebookb2b
+;0010;;0010:warehouse_c;ebookb2b
+;0011;;0011:warehouse_c;ebookb2b
+;0012;;0012:warehouse_c;ebookb2b
+#;0013;;0013:warehouse_c;ebookb2b
+#;0014;;0014:warehouse_c;ebookb2b
+;0015;;0015:warehouse_c;ebookb2b
+;0016;;0016:warehouse_c;ebookb2b
+;0017;;0017:warehouse_c;ebookb2b
+;0018;;0018:warehouse_c;ebookb2b
+;0019;;0019:warehouse_c;ebookb2b
+;0020;;0020:warehouse_c;ebookb2b
+
+
+;ATG0019;;ATG0019:warehouse_c;ebookb2b
+;ATT0019;;ATT0019:warehouse_c;ebookb2b
+;ATG0018;;ATG0018:warehouse_c;ebookb2b
+;ATT0018;;ATT0018:warehouse_c;ebookb2b
+;ATG0017;;ATG0017:warehouse_c;ebookb2b
+;ATT0017;;ATT0017:warehouse_c;ebookb2b
+

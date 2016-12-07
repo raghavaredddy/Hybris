@@ -1,0 +1,50 @@
+# ImpEx for Promotions
+
+# Macros / Replacement Parameter definitions
+$productCatalog=ebookb2bProductCatalog
+$defaultPromoGrp=ebookb2bPromoGrp
+$regulargroup=regulargroup
+
+$favCustomers=favoriteCustomers
+$bigSpenders=bigSpenders
+$catalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Online])[default=$productCatalog:Online]
+
+INSERT PromotionPriceRow;&tresholdId;Currency(isocode);price
+;1;EUR;150
+;2;USD;200
+
+INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+;7;EUR;15
+;8;USD;20
+
+INSERT_UPDATE OrderThresholdDiscountPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true,unique=true];code[unique=true];title;description;messageFired[lang=en];messageFired[lang=de];messageFired[lang=ja];messageFired[lang=zh];priority;thresholdTotals(&tresholdId);discountPrices(&priceId)
+;;;OrderThreshold15Discount;You saved bunch of bucks for spending quite much;You saved bunch of bucks for spending quite much;You saved {3} for spending over {1};
+
+
+INSERT_UPDATE PromotionUserRestriction;positive;promotion(code)[unique=true];users(uid)
+;TRUE;OrderThreshold15Discount;$regulargroup
+
+#### 10% Discount on  Flat ####
+INSERT_UPDATE ProductPercentageDiscountPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;percentageDiscount;priority;products(code,$catalogVersion)
+;;;10DiscountonthisBook;10% discount on this Book;10% discount on this Book;10;500;0006
+
+INSERT_UPDATE ProductPercentageDiscountPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;percentageDiscount;priority;products(code,$catalogVersion)
+
+INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+
+INSERT_UPDATE AcceleratorProductMultiBuyPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;categories(code,$catalogVersion);qualifyingCount;bundlePrices(&priceId)
+
+INSERT_UPDATE AcceleratorProductBOGOFPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;categories(code,$catalogVersion);qualifyingCount;freeCount
+
+INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+
+INSERT_UPDATE ProductPerfectPartnerPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;products(code,$catalogVersion);partnerProducts(code,$catalogVersion);partnerPrices(&priceId)
+
+INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+
+INSERT_UPDATE ProductBundlePromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true,unique=true];code[unique=true];title;description;priority;products(code,$catalogVersion);bundlePrices(&priceId)
+
+
+
+INSERT_UPDATE ProductQuantityThresholdFreeGiftPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];priority;products(code,$catalogVersion);giftProduct(code,$catalogVersion);messageCouldHaveFired                           ;messageFired     ;qualifyingCount
+														;                                                    ;                                  ;GetFree          ;1000    ;     0002                  ;      0003   ;Book 3  you will get 1  free; you got free gift;3

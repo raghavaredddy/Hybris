@@ -1,0 +1,11 @@
+#
+# Import the CMS Site configuration for the store
+#
+
+# Language
+$lang=en
+$storeUid=ebookb2b
+
+# Create CMS Site
+UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+;ebookb2b;"ebookb2b Site";en_US

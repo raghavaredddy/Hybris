@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><ebookb2bfacades><testclass>com.ebookb2b.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass><testclass>com.ebookb2b.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass></ebookb2bfacades></testclasses>

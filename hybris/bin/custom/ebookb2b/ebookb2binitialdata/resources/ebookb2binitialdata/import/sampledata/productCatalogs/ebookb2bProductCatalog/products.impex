@@ -1,0 +1,52 @@
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=ebookb2bProductCatalog
+$productCatalogName=ebookb2b Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code,$catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full]
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved;$taxGroup
+#INSERT_UPDATE Product;code[unique=true];$catalogVersion;unit(code);supercategories(code,$catalogVersion);varianttype(code);$approved;$taxGroup
+
+;0001;110;SCHOOLTEXTS;SCHOOLTEXTS_BOOK1;pieces;
+;0002;110;SCHOOLTEXTS;SCHOOLTEXTS_BOOK2;pieces;
+;0003;120;ENGINEERING;ENGINEERING_BOOK1;pieces;
+;0004;120;ENGINEERING;ENGINEERING_BOOK2;pieces;
+;0005;130;COMPUTERSCIENCE;COMPUTERSCIENCE_BOOK1;pieces;
+;0006;130;COMPUTERSCIENCE;COMPUTERSCIENCE_BOOK2;pieces;
+;0007;210;0-2YEARS;0-2YEARS_BOOK1;pieces;
+;0008;210;0-2YEARS;0-2YEARS_BOOK2;pieces;
+;0009;220;3-4YEARS;3-4YEARS_BOOK1;pieces;
+;0010;220;3-4YEARS;3-4YEARS_BOOK2;pieces;
+
+
+;0011;230;5-8YEARS;5-8YEARS_BOOK1;pieces;
+;0012;230;5-8YEARS;5-8YEARS_BOOK2;pieces;
+#;0013;240;ADULTS;ADULTS_BOOK1;pieces;
+#;0014;240;ADULTS;ADULTS_BOOK2;pieces;
+;0015;310;GOVERNMENTVACANCY;GOVERNMENTVACANCY_BOOK1;pieces;
+;0016;310;GOVERNMENTVACANCY;GOVERNMENTVACANCY_BOOK2;pieces;
+;0017;320;BANKING;BANKING_AWARENESS;pieces;;EbookSizeVariantProduct
+;0018;320;BANKING;BANKING_IBPS;pieces;;EbookSizeVariantProduct
+;0019;330;ENTRANCETEST;ENTRANCETEST_BOOK1;pieces;;EbookSizeVariantProduct
+;0020;330;ENTRANCETEST;ENTRANCETEST_BOOK2;pieces;
+;0021;410;ComingSoon;ComingSoon;pieces;
+#;0032;230;ComingSoon;ComingSoon2;pieces;
+
+
+# Create EtourtravelStyleVariantProduct StyleVariantProduct variants
+#INSERT_UPDATE EtourtravelDaysVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);swatchColors(code);unit(code)[default='pieces'];varianttype(code);$approved
+
+INSERT_UPDATE EbookSizeVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);bookSize(code);unit(code)[default='pieces'];varianttype(code);$approved;$taxGroup
+;ATG0017;;0017;320;A4;pieces;
+;ATT0017;;0017;320;LongBook;pieces;
+;ATG0018;;0018;320;A4;pieces;
+;ATT0018;;0018;320;LongBook;pieces;
+;ATG0019;;0019;330;A4;pieces;
+;ATT0019;;0019;330;LongBook;pieces;

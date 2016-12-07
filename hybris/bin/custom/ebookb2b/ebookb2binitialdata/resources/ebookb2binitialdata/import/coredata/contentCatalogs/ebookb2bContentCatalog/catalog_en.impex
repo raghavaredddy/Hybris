@@ -1,0 +1,13 @@
+#
+# Import the Content Catalog
+#
+
+#
+# ENGLISH LOCALIZATION
+#
+# Language
+$lang=en
+$contentCatalog=ebookb2bContentCatalog
+# Create Content Catalog
+UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
+;$contentCatalog;"ebookb2b Content Catalog"

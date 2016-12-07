@@ -1,0 +1,53 @@
+# ImpEx for Importing Product Localisations
+ 
+# Macros / Replacement Parameter definitions
+$productCatalog=ebookb2bProductCatalog
+$productCatalogName=ebookb2b Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Update allProducts with localisations
+#UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+
+#INSERT_UPDATE Product;$catalogVersion;code[unique=true];name[lang=$lang];summary[lang=$lang];description[lang=$lang];EtourtravelDaysVariantProduct.days[lang=$lang];
+
+
+INSERT_UPDATE Product;$catalogVersion;code[unique=true];name[lang=$lang];summary[lang=$lang];description[lang=$lang];EbookSizeVariantProduct.booksize[lang=$lang];
+
+;;0001;Science Physics;<p>"upto 10th standard books"</p>;books
+;;0002;Concise Chemistry;upto 10th standard books;books
+;;0003;Electrical Engineering; betech students books;books
+;;0004;Civil Engineering;betech students books;books
+;;0005;Database System;everyone can read technology related books;books
+;;0006;Java server Programming;everyone can read technology related books;books
+;;0007;Baby bath book of ABC;small babies books;books
+;;0008;Dr. Sues's ABC;small babies books;books
+;;0009;First 100 words;small babies books;books
+;;0010;kid Diary;Diary of a Wimpy kid;small babies books;books
+;;0011;Puzzle mania;Kid Puzzle;growing childrens books;books
+;;0012;The worst class Trip;growing childrens books;books
+#;;0013;adults_book1;young guys books;books
+#;;0014;The river;young guys books;books
+;;0015;upsc;who can see government jobs books;books
+;;0016;RRB;who can see government jobs books;books
+;;0017;banking_awareness;banking books;books
+;;0018;IBPS;banking books;books
+;;0019;MAT;entrance exam books;books
+;;0020;NCHMT-JEE;entrance exam books;books
+;;0021;fictionbooks;comingsoon fiction books;books
+
+;;ATG0017;Ebook banking_awareness;Ebook banking_awareness;;A4;A4;
+;;ATT0017;Ebook banking_awareness;Ebook banking_awareness;;LongBook;LongBook;
+
+;;ATG0018;Ebook IBPS;Ebook IBPS;;A4;A4;
+;;ATT0018;Ebook IBPS;Ebook IBPS;;LongBook;LongBook;
+
+;;ATG0019;Ebook MAT;Ebook MAT;;A4;A4;
+;;ATT0019;Ebook MAT;Ebook MAT;;LongBook;LongBook;
+
+
+
+

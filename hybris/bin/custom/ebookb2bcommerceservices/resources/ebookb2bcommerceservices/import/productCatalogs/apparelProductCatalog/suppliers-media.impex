@@ -1,0 +1,6 @@
+$productCatalog=apparelProductCatalog
+$productCatalogName=Apparel Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$superCategories=superCategories(code, $catalogVersion)
+$thumbnail=thumbnail(code, $catalogVersion)
+$siteResource=jar:com.ebookb2b.constants.Ebookb2bcommerceservicesConstants&/ebookb2bcommerceservices/import/productCatalogs/$productCatalog

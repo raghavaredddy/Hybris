@@ -1,0 +1,228 @@
+# ImPex for Importing Product Media
+
+# Macros / Replacement Parameter definitions
+
+$productCatalog=ebookb2bProductCatalog
+$productCatalogName=ebookb2b Product Catalog
+$storeName=ebookb2b
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
+$media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
+$thumbnail=thumbnail(code, $catalogVersion)
+$picture=picture(code, $catalogVersion)
+$thumbnails=thumbnails(code, $catalogVersion)
+$detail=detail(code, $catalogVersion)
+$normal=normal(code, $catalogVersion)
+$others=others(code, $catalogVersion)
+$data_sheet=data_sheet(code, $catalogVersion)
+$medias=medias(code, $catalogVersion)
+$galleryImages=galleryImages(qualifier, $catalogVersion)
+$siteResource=jar:com.ebookb2b.initialdata.setup.InitialDataSystemSetup&/ebookb2binitialdata/import/sampledata/productCatalogs/$productCatalog/images
+
+INSERT_UPDATE MediaFolder;qualifier[unique=true];path[unique=true]
+;images;images
+
+# Create Media
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpg'];$catalogVersion;folder(qualifier)
+;1200Wx1200H;/1200Wx1200H/school_book1.jpg;$siteResource/1200Wx1200H/school_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/school_book2.jpg;$siteResource/1200Wx1200H/school_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/engineering_book1.jpg;$siteResource/1200Wx1200H/engineering_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/engineering_book2.jpg;$siteResource/1200Wx1200H/engineering_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/computer_book1.jpg;$siteResource/1200Wx1200H/computer_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/computer_book2.jpg;$siteResource/1200Wx1200H/computer_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/0-2years_book1.jpg;$siteResource/1200Wx1200H/0-2years_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/0-2years_book2.jpg;$siteResource/1200Wx1200H/0-2years_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/3-4years_book1.jpg;$siteResource/1200Wx1200H/3-4years_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/3-4years_book2.jpg;$siteResource/1200Wx1200H/3-4years_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/5-8years_book1.jpg;$siteResource/1200Wx1200H/5-8years_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/5-8years_book2.jpg;$siteResource/1200Wx1200H/5-8years_book2.jpg;;;images
+#;1200Wx1200H;/1200Wx1200H/adults_book1.jpg;$siteResource/1200Wx1200H/adults_book1.jpg;;;images
+#;1200Wx1200H;/1200Wx1200H/adults_book2.jpg;$siteResource/1200Wx1200H/adults_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/government_book1.jpg;$siteResource/1200Wx1200H/government_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/government_book2.jpg;$siteResource/1200Wx1200H/government_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/banking_book1.jpg;$siteResource/1200Wx1200H/banking_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/banking_book2.jpg;$siteResource/1200Wx1200H/banking_book2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/entrance_book1.jpg;$siteResource/1200Wx1200H/entrance_book1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/entrance_book2.jpg;$siteResource/1200Wx1200H/entrance_book2.jpg;;;images
+
+;1200Wx1200H;/1200Wx1200H/Comingsoon.jpg;$siteResource/1200Wx1200H/Comingsoon.jpg;;;images
+ 
+
+ 
+;515Wx515H;/515Wx515H/school_book1.jpg;$siteResource/515Wx515H/school_book1.jpg;;;images
+;515Wx515H;/515Wx515H/school_book2.jpg;$siteResource/515Wx515H/school_book2.jpg;;;images
+;515Wx515H;/515Wx515H/engineering_book1.jpg;$siteResource/515Wx515H/engineering_book1.jpg;;;images
+;515Wx515H;/515Wx515H/engineering_book2.jpg;$siteResource/515Wx515H/engineering_book2.jpg;;;images
+;515Wx515H;/515Wx515H/computer_book1.jpg;$siteResource/515Wx515H/computer_book1.jpg;;;images
+;515Wx515H;/515Wx515H/computer_book2.jpg;$siteResource/515Wx515H/computer_book2.jpg;;;images
+;515Wx515H;/515Wx515H/0-2years_book1.jpg;$siteResource/515Wx515H/0-2years_book1.jpg;;;images
+;515Wx515H;/515Wx515H/0-2years_book2.jpg;$siteResource/515Wx515H/0-2years_book2.jpg;;;images
+;515Wx515H;/515Wx515H/3-4years_book1.jpg;$siteResource/515Wx515H/3-4years_book1.jpg;;;images
+;515Wx515H;/515Wx515H/3-4years_book2.jpg;$siteResource/515Wx515H/3-4years_book2.jpg;;;images
+;515Wx515H;/515Wx515H/5-8years_book1.jpg;$siteResource/515Wx515H/5-8years_book1.jpg;;;images
+;515Wx515H;/515Wx515H/5-8years_book2.jpg;$siteResource/515Wx515H/5-8years_book2.jpg;;;images
+#;515Wx515H;/515Wx515H/adults_book1.jpg;$siteResource/515Wx515H/adults_book1.jpg;;;images
+#;515Wx515H;/515Wx515H/adults_book2.jpg;$siteResource/515Wx515H/adults_book2.jpg;;;images
+;515Wx515H;/515Wx515H/government_book1.jpg;$siteResource/515Wx515H/government_book1.jpg;;;images
+;515Wx515H;/515Wx515H/government_book2.jpg;$siteResource/515Wx515H/government_book2.jpg;;;images
+;515Wx515H;/515Wx515H/banking_book1.jpg;$siteResource/515Wx515H/banking_book1.jpg;;;images
+;515Wx515H;/515Wx515H/banking_book2.jpg;$siteResource/515Wx515H/banking_book2.jpg;;;images
+;515Wx515H;/515Wx515H/entrance_book1.jpg;$siteResource/515Wx515H/entrance_book1.jpg;;;images
+;515Wx515H;/515Wx515H/entrance_book2.jpg;$siteResource/515Wx515H/entrance_book2.jpg;;;images
+ 
+;515Wx515H;/515Wx515H/Comingsoon.jpg;$siteResource/515Wx515H/Comingsoon.jpg;;;images
+ 
+;300Wx300H;/300Wx300H/school_book1.jpg;$siteResource/300Wx300H/school_book1.jpg;;;images
+;300Wx300H;/300Wx300H/school_book2.jpg;$siteResource/300Wx300H/school_book2.jpg;;;images
+;300Wx300H;/300Wx300H/engineering_book1.jpg;$siteResource/300Wx300H/engineering_book1.jpg;;;images
+;300Wx300H;/300Wx300H/engineering_book2.jpg;$siteResource/300Wx300H/engineering_book2.jpg;;;images
+;300Wx300H;/300Wx300H/computer_book1.jpg;$siteResource/300Wx300H/computer_book1.jpg;;;images
+;300Wx300H;/300Wx300H/computer_book2.jpg;$siteResource/300Wx300H/computer_book2.jpg;;;images
+;300Wx300H;/300Wx300H/0-2years_book1.jpg;$siteResource/300Wx300H/0-2years_book1.jpg;;;images
+;300Wx300H;/300Wx300H/0-2years_book2.jpg;$siteResource/300Wx300H/0-2years_book2.jpg;;;images
+;300Wx300H;/300Wx300H/3-4years_book1.jpg;$siteResource/300Wx300H/3-4years_book1.jpg;;;images
+;300Wx300H;/300Wx300H/3-4years_book2.jpg;$siteResource/300Wx300H/3-4years_book2.jpg;;;images
+;300Wx300H;/300Wx300H/5-8years_book1.jpg;$siteResource/300Wx300H/5-8years_book1.jpg;;;images
+;300Wx300H;/300Wx300H/5-8years_book2.jpg;$siteResource/300Wx300H/5-8years_book2.jpg;;;images
+#;300Wx300H;/300Wx300H/adults_book1.jpg;$siteResource/300Wx300H/adults_book1.jpg;;;images
+#;300Wx300H;/300Wx300H/adults_book2.jpg;$siteResource/300Wx300H/adults_book2.jpg;;;images
+;300Wx300H;/300Wx300H/government_book1.jpg;$siteResource/300Wx300H/government_book1.jpg;;;images
+;300Wx300H;/300Wx300H/government_book2.jpg;$siteResource/300Wx300H/government_book2.jpg;;;images
+;300Wx300H;/300Wx300H/banking_book1.jpg;$siteResource/300Wx300H/banking_book1.jpg;;;images
+;300Wx300H;/300Wx300H/banking_book2.jpg;$siteResource/300Wx300H/banking_book2.jpg;;;images
+;300Wx300H;/300Wx300H/entrance_book1.jpg;$siteResource/300Wx300H/entrance_book1.jpg;;;images
+;300Wx300H;/300Wx300H/entrance_book2.jpg;$siteResource/300Wx300H/entrance_book2.jpg;;;images
+;300Wx300H;/300Wx300H/Comingsoon.jpg;$siteResource/300Wx300H/Comingsoon.jpg;;;images
+
+;96Wx96H;/96Wx96H/school_book1.jpg;$siteResource/96Wx96H/school_book1.jpg;;;images
+;96Wx96H;/96Wx96H/school_book2.jpg;$siteResource/96Wx96H/school_book2.jpg;;;images
+;96Wx96H;/96Wx96H/engineering_book1.jpg;$siteResource/96Wx96H/engineering_book1.jpg;;;images
+;96Wx96H;/96Wx96H/engineering_book2.jpg;$siteResource/96Wx96H/engineering_book2.jpg;;;images
+;96Wx96H;/96Wx96H/computer_book1.jpg;$siteResource/96Wx96H/computer_book1.jpg;;;images
+;96Wx96H;/96Wx96H/computer_book2.jpg;$siteResource/96Wx96H/computer_book2.jpg;;;images
+;96Wx96H;/96Wx96H/0-2years_book1.jpg;$siteResource/96Wx96H/0-2years_book1.jpg;;;images
+;96Wx96H;/96Wx96H/0-2years_book2.jpg;$siteResource/96Wx96H/0-2years_book2.jpg;;;images
+;96Wx96H;/96Wx96H/3-4years_book1.jpg;$siteResource/96Wx96H/3-4years_book1.jpg;;;images
+;96Wx96H;/96Wx96H/3-4years_book2.jpg;$siteResource/96Wx96H/3-4years_book2.jpg;;;images
+;96Wx96H;/96Wx96H/5-8years_book1.jpg;$siteResource/96Wx96H/5-8years_book1.jpg;;;images
+;96Wx96H;/96Wx96H/5-8years_book2.jpg;$siteResource/96Wx96H/5-8years_book2.jpg;;;images
+#;96Wx96H;/96Wx96H/adults_book1.jpg;$siteResource/96Wx96H/adults_book1.jpg;;;images
+#;96Wx96H;/96Wx96H/adults_book2.jpg;$siteResource/96Wx96H/adults_book2.jpg;;;images
+;96Wx96H;/96Wx96H/government_book1.jpg;$siteResource/96Wx96H/government_book1.jpg;;;images
+;96Wx96H;/96Wx96H/government_book2.jpg;$siteResource/96Wx96H/government_book2.jpg;;;images
+;96Wx96H;/96Wx96H/banking_book1.jpg;$siteResource/96Wx96H/banking_book1.jpg;;;images
+;96Wx96H;/96Wx96H/banking_book2.jpg;$siteResource/96Wx96H/banking_book2.jpg;;;images
+;96Wx96H;/96Wx96H/entrance_book1.jpg;$siteResource/96Wx96H/entrance_book1.jpg;;;images
+;96Wx96H;/96Wx96H/entrance_book2.jpg;$siteResource/96Wx96H/entrance_book2.jpg;;;images
+ ;96Wx96H;/96Wx96H/Comingsoon.jpg;$siteResource/96Wx96H/Comingsoon.jpg;;;images
+
+;65Wx65H;/65Wx65H/school_book1.jpg;$siteResource/65Wx65H/school_book1.jpg;;;images
+;65Wx65H;/65Wx65H/school_book2.jpg;$siteResource/65Wx65H/school_book2.jpg;;;images
+;65Wx65H;/65Wx65H/engineering_book1.jpg;$siteResource/65Wx65H/engineering_book1.jpg;;;images
+;65Wx65H;/65Wx65H/engineering_book2.jpg;$siteResource/65Wx65H/engineering_book2.jpg;;;images
+;65Wx65H;/65Wx65H/computer_book1.jpg;$siteResource/65Wx65H/computer_book1.jpg;;;images
+;65Wx65H;/65Wx65H/computer_book2.jpg;$siteResource/65Wx65H/computer_book2.jpg;;;images
+;65Wx65H;/65Wx65H/0-2years_book1.jpg;$siteResource/65Wx65H/0-2years_book1.jpg;;;images
+;65Wx65H;/65Wx65H/0-2years_book2.jpg;$siteResource/65Wx65H/0-2years_book2.jpg;;;images
+;65Wx65H;/65Wx65H/3-4years_book1.jpg;$siteResource/65Wx65H/3-4years_book1.jpg;;;images
+;65Wx65H;/65Wx65H/3-4years_book2.jpg;$siteResource/65Wx65H/3-4years_book2.jpg;;;images
+;65Wx65H;/65Wx65H/5-8years_book1.jpg;$siteResource/65Wx65H/5-8years_book1.jpg;;;images
+;65Wx65H;/65Wx65H/5-8years_book2.jpg;$siteResource/65Wx65H/5-8years_book2.jpg;;;images
+#;65Wx65H;/65Wx65H/adults_book1.jpg;$siteResource/65Wx65H/adults_book1.jpg;;;images
+#;65Wx65H;/65Wx65H/adults_book2.jpg;$siteResource/65Wx65H/adults_book2.jpg;;;images
+;65Wx65H;/65Wx65H/government_book1.jpg;$siteResource/65Wx65H/government_book1.jpg;;;images
+;65Wx65H;/65Wx65H/government_book2.jpg;$siteResource/65Wx65H/government_book2.jpg;;;images
+;65Wx65H;/65Wx65H/banking_book1.jpg;$siteResource/65Wx65H/banking_book1.jpg;;;images
+;65Wx65H;/65Wx65H/banking_book2.jpg;$siteResource/65Wx65H/banking_book2.jpg;;;images
+;65Wx65H;/65Wx65H/entrance_book1.jpg;$siteResource/65Wx65H/entrance_book1.jpg;;;images
+;65Wx65H;/65Wx65H/entrance_book2.jpg;$siteResource/65Wx65H/entrance_book2.jpg;;;images
+ ;65Wx65H;/65Wx65H/Comingsoon.jpg;$siteResource/65Wx65H/Comingsoon.jpg;;;images
+
+ 
+;30Wx30H;/30Wx30H/school_book1.jpg;$siteResource/30Wx30H/school_book1.jpg;;;images
+;30Wx30H;/30Wx30H/school_book2.jpg;$siteResource/30Wx30H/school_book2.jpg;;;images
+;30Wx30H;/30Wx30H/engineering_book1.jpg;$siteResource/30Wx30H/engineering_book1.jpg;;;images
+;30Wx30H;/30Wx30H/engineering_book2.jpg;$siteResource/30Wx30H/engineering_book2.jpg;;;images
+;30Wx30H;/30Wx30H/computer_book1.jpg;$siteResource/30Wx30H/computer_book1.jpg;;;images
+;30Wx30H;/30Wx30H/computer_book2.jpg;$siteResource/30Wx30H/computer_book2.jpg;;;images
+;30Wx30H;/30Wx30H/0-2years_book1.jpg;$siteResource/30Wx30H/0-2years_book1.jpg;;;images
+;30Wx30H;/30Wx30H/0-2years_book2.jpg;$siteResource/30Wx30H/0-2years_book2.jpg;;;images
+;30Wx30H;/30Wx30H/3-4years_book1.jpg;$siteResource/30Wx30H/3-4years_book1.jpg;;;images
+;30Wx30H;/30Wx30H/3-4years_book2.jpg;$siteResource/30Wx30H/3-4years_book2.jpg;;;images
+;30Wx30H;/30Wx30H/5-8years_book1.jpg;$siteResource/30Wx30H/5-8years_book1.jpg;;;images
+;30Wx30H;/30Wx30H/5-8years_book2.jpg;$siteResource/30Wx30H/5-8years_book2.jpg;;;images
+#;30Wx30H;/30Wx30H/adults_book1.jpg;$siteResource/30Wx30H/adults_book1.jpg;;;images
+#;30Wx30H;/30Wx30H/adults_book2.jpg;$siteResource/30Wx30H/adults_book2.jpg;;;images
+;30Wx30H;/30Wx30H/government_book1.jpg;$siteResource/30Wx30H/government_book1.jpg;;;images
+;30Wx30H;/30Wx30H/government_book2.jpg;$siteResource/30Wx30H/government_book2.jpg;;;images
+;30Wx30H;/30Wx30H/banking_book1.jpg;$siteResource/30Wx30H/banking_book1.jpg;;;images
+;30Wx30H;/30Wx30H/banking_book2.jpg;$siteResource/30Wx30H/banking_book2.jpg;;;images
+;30Wx30H;/30Wx30H/entrance_book1.jpg;$siteResource/30Wx30H/entrance_book1.jpg;;;images
+;30Wx30H;/30Wx30H/entrance_book2.jpg;$siteResource/30Wx30H/entrance_book2.jpg;;;images
+ 
+ ;30Wx30H;/30Wx30H/Comingsoon.jpg;$siteResource/30Wx30H/Comingsoon.jpg;;;images
+ 
+# Create Media Containers
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;0001_1.jpg;/1200Wx1200H/school_book1.jpg,/515Wx515H/school_book1.jpg,/300Wx300H/school_book1.jpg,/96Wx96H/school_book1.jpg,/65Wx65H/school_book1.jpg,/30Wx30H/school_book1.jpg
+;0002_2.jpg;/1200Wx1200H/school_book2.jpg,/515Wx515H/school_book2.jpg,/300Wx300H/school_book2.jpg,/96Wx96H/school_book2.jpg,/65Wx65H/school_book2.jpg,/30Wx30H/school_book2.jpg
+;0003_1.jpg;/1200Wx1200H/engineering_book1.jpg,/515Wx515H/engineering_book1.jpg,/300Wx300H/engineering_book1.jpg,/96Wx96H/engineering_book1.jpg,/65Wx65H/engineering_book1.jpg,/30Wx30H/engineering_book1.jpg
+;0004_2.jpg;/1200Wx1200H/engineering_book2.jpg,/515Wx515H/engineering_book2.jpg,/300Wx300H/engineering_book2.jpg,/96Wx96H/engineering_book2.jpg,/65Wx65H/engineering_book2.jpg,/30Wx30H/engineering_book2.jpg
+;0005_1.jpg;/1200Wx1200H/computer_book1.jpg,/515Wx515H/computer_book1.jpg,/300Wx300H/computer_book1.jpg,/96Wx96H/computer_book1.jpg,/65Wx65H/computer_book1.jpg,/30Wx30H/computer_book1.jpg
+;0006_2.jpg;/1200Wx1200H/computer_book2.jpg,/515Wx515H/computer_book2.jpg,/300Wx300H/computer_book2.jpg,/96Wx96H/computer_book2.jpg,/65Wx65H/computer_book2.jpg,/30Wx30H/computer_book2.jpg
+;0007_1.jpg;/1200Wx1200H/0-2years_book1.jpg,/515Wx515H/0-2years_book1.jpg,/300Wx300H/0-2years_book1.jpg,/96Wx96H/0-2years_book1.jpg,/65Wx65H/0-2years_book1.jpg,/30Wx30H/0-2years_book1.jpg
+;0008_2.jpg;/1200Wx1200H/0-2years_book2.jpg,/515Wx515H/0-2years_book2.jpg,/300Wx300H/0-2years_book2.jpg,/96Wx96H/0-2years_book2.jpg,/65Wx65H/0-2years_book2.jpg,/30Wx30H/0-2years_book2.jpg
+
+;0009_1.jpg;/1200Wx1200H/3-4years_book1.jpg,/515Wx515H/3-4years_book1.jpg,/300Wx300H/3-4years_book1.jpg,/96Wx96H/3-4years_book1.jpg,/65Wx65H/3-4years_book1.jpg,/30Wx30H/3-4years_book1.jpg
+;0010_2.jpg;/1200Wx1200H/3-4years_book2.jpg,/515Wx515H/3-4years_book2.jpg,/300Wx300H/3-4years_book2.jpg,/96Wx96H/3-4years_book2.jpg,/65Wx65H/3-4years_book2.jpg,/30Wx30H/3-4years_book2.jpg
+;0011_1.jpg;/1200Wx1200H/5-8years_book1.jpg,/515Wx515H/5-8years_book1.jpg,/300Wx300H/5-8years_book1.jpg,/96Wx96H/5-8years_book1.jpg,/65Wx65H/5-8years_book1.jpg,/30Wx30H/5-8years_book1.jpg
+;0012_2.jpg;/1200Wx1200H/5-8years_book2.jpg,/515Wx515H/5-8years_book2.jpg,/300Wx300H/5-8years_book2.jpg,/96Wx96H/5-8years_book2.jpg,/65Wx65H/5-8years_book2.jpg,/30Wx30H/5-8years_book2.jpg
+
+#;0013_1.jpg;/1200Wx1200H/adults_book1.jpg,/515Wx515H/adults_book1.jpg,/300Wx300H/adults_book1.jpg,/96Wx96H/adults_book1.jpg,/65Wx65H/adults_book1.jpg,/30Wx30H/adults_book1.jpg
+#;0014_2.jpg;/1200Wx1200H/adults_book2.jpg,/515Wx515H/adults_book2.jpg,/300Wx300H/adults_book2.jpg,/96Wx96H/adults_book2.jpg,/65Wx65H/adults_book2.jpg,/30Wx30H/adults_book2.jpg
+;0015_1.jpg;/1200Wx1200H/government_book1.jpg,/515Wx515H/government_book1.jpg,/300Wx300H/government_book1.jpg,/96Wx96H/government_book1.jpg,/65Wx65H/government_book1.jpg,/30Wx30H/government_book1.jpg
+;0016_2.jpg;/1200Wx1200H/government_book2.jpg,/515Wx515H/government_book2.jpg,/300Wx300H/government_book2.jpg,/96Wx96H/government_book2.jpg,/65Wx65H/government_book2.jpg,/30Wx30H/government_book2.jpg
+
+
+;0017_1.jpg;/1200Wx1200H/banking_book1.jpg,/515Wx515H/banking_book1.jpg,/300Wx300H/banking_book1.jpg,/96Wx96H/banking_book1.jpg,/65Wx65H/banking_book1.jpg,/30Wx30H/banking_book1.jpg
+;0018_2.jpg;/1200Wx1200H/banking_book2.jpg,/515Wx515H/banking_book2.jpg,/300Wx300H/banking_book2.jpg,/96Wx96H/banking_book2.jpg,/65Wx65H/banking_book2.jpg,/30Wx30H/banking_book2.jpg
+;0019_1.jpg;/1200Wx1200H/entrance_book1.jpg,/515Wx515H/entrance_book1.jpg,/300Wx300H/entrance_book1.jpg,/96Wx96H/entrance_book1.jpg,/65Wx65H/entrance_book1.jpg,/30Wx30H/entrance_book1.jpg
+;0020_2.jpg;/1200Wx1200H/entrance_book2.jpg,/515Wx515H/entrance_book2.jpg,/300Wx300H/entrance_book2.jpg,/96Wx96H/entrance_book2.jpg,/65Wx65H/entrance_book2.jpg,/30Wx30H/entrance_book2.jpg
+;0021_1.jpg;/1200Wx1200H/Comingsoon.jpg,/515Wx515H/Comingsoon.jpg,/300Wx300H/Comingsoon.jpg,/96Wx96H/Comingsoon.jpg,/65Wx65H/Comingsoon.jpg,/30Wx30H/Comingsoon.jpg
+# Update Products with Media and Media Containers
+INSERT_UPDATE Product;code[unique=true];$catalogVersion;$galleryImages;$picture;$thumbnail
+
+ ;0001;;0001_1.jpg;/300Wx300H/school_book1.jpg;/96Wx96H/school_book1.jpg
+ ;0002;;0002_2.jpg;/300Wx300H/school_book2.jpg;/96Wx96H/school_book2.jpg
+ ;0003;;0003_1.jpg;/300Wx300H/engineering_book1.jpg;/96Wx96H/engineering_book1.jpg
+ ;0004;;0004_2.jpg;/300Wx300H/engineering_book2.jpg;/96Wx96H/engineering_book2.jpg
+ ;0005;;0005_1.jpg;/300Wx300H/computer_book1.jpg;/96Wx96H/computer_book1.jpg
+ ;0006;;0006_2.jpg;/300Wx300H/computer_book2.jpg;/96Wx96H/computer_book2.jpg
+ ;0007;;0007_1.jpg;/300Wx300H/0-2years_book1.jpg;/96Wx96H/0-2years_book1.jpg
+ ;0008;;0008_2.jpg;/300Wx300H/0-2years_book2.jpg;/96Wx96H/0-2years_book2.jpg
+ ;0009;;0009_1.jpg;/300Wx300H/3-4years_book1.jpg;/96Wx96H/3-4years_book1.jpg
+ ;0010;;0010_2.jpg;/300Wx300H/3-4years_book2.jpg;/96Wx96H/3-4years_book2.jpg
+ ;0011;;0011_1.jpg;/300Wx300H/5-8years_book1.jpg;/96Wx96H/5-8years_book1.jpg
+ ;0012;;0012_2.jpg;/300Wx300H/5-8years_book2.jpg;/96Wx96H/5-8years_book2.jpg
+ #;0013;;0013_1.jpg;/300Wx300H/adults_book1.jpg;/96Wx96H/adults_book1.jpg
+ #;0014;;0014_2.jpg;/300Wx300H/adults_book2.jpg;/96Wx96H/adults_book2.jpg
+ ;0015;;0015_1.jpg;/300Wx300H/government_book1.jpg;/96Wx96H/government_book1.jpg
+ ;0016;;0016_2.jpg;/300Wx300H/government_book2.jpg;/96Wx96H/government_book2.jpg
+ ;0017;;0017_1.jpg;/300Wx300H/banking_book1.jpg;/96Wx96H/banking_book1.jpg
+ ;0018;;0018_2.jpg;/300Wx300H/banking_book2.jpg;/96Wx96H/banking_book2.jpg
+ ;0019;;0019_1.jpg;/300Wx300H/entrance_book1.jpg;/96Wx96H/entrance_book1.jpg
+ ;0020;;0020_2.jpg;/300Wx300H/entrance_book2.jpg;/96Wx96H/entrance_book2.jpg
+ ;0021;;0021_1.jpg;/300Wx300H/Comingsoon.jpg;/96Wx96H/Comingsoon.jpg
+ 
+ 
+ 
+ UPDATE EbookSizeVariantProduct;code[unique=true];$catalogVersion;$galleryImages;$picture;$thumbnail
+;ATG0017;;0017_1.jpg;/300Wx300H/banking_book1.jpg;/96Wx96H/banking_book1.jpg;/30Wx30H/banking_book1.jpg
+;ATT0017;;0017_1.jpg;/300Wx300H/banking_book1.jpg;/96Wx96H/banking_book1.jpg;/30Wx30H/banking_book1.jpg
+;ATG0018;;0018_2.jpg;/300Wx300H/banking_book2.jpg;/96Wx96H/banking_book2.jpg;/30Wx30H/banking_book2.jpg
+;ATT0018;;0018_2.jpg;/300Wx300H/banking_book2.jpg;/96Wx96H/banking_book2.jpg;/30Wx30H/banking_book2.jpg
+;ATG0019;;0019_1.jpg;/300Wx300H/entrance_book1.jpg;/96Wx96H/entrance_book1.jpg;/30Wx30H/entrance_book1.jpg
+;ATT0019;;0019_1.jpg;/300Wx300H/entrance_book1.jpg;/96Wx96H/entrance_book1.jpg;/30Wx30H/entrance_book1.jpg
+ 
+ 
+ 

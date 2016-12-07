@@ -1,0 +1,42 @@
+# ImpEx for Importing Categories into Merchandise Store
+   
+# Macros / Replacement Parameter definitions
+$productCatalog=ebookb2bProductCatalog
+   
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=source(code, $catalogVersion)[unique=true]
+$categories=target(code, $catalogVersion)[unique=true]
+   
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+;1
+;100
+;110
+;120
+;130
+;200
+;210
+;220
+;230
+;300
+;310
+;320
+;330
+;400
+;410
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+ ;100;1
+ ;200;1
+ ;300;1
+ ;400;1
+ ;110;100
+ ;120;100
+ ;130;100
+ ;220;200
+ ;230;200
+ ;310;300
+ ;320;300
+ ;330;300
+ ;410;400
